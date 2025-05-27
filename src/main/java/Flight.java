@@ -1,8 +1,7 @@
 import java.time.LocalDateTime;
 
-public class Flight {
+public class Flight implements Comparable<Flight>{
     private TypeFlight typeFlight;
-
     private String nameAirline;
     private String numberFlight;
     private String placeForArrival;
@@ -11,12 +10,11 @@ public class Flight {
     private LocalDateTime timeArrival;
     private String daysForDeparture;
 
-
-
-    public Flight(TypeFlight typeFlight, String nameAirline,
-                  String numberFlight, String placeForArrival,
-                  LocalDateTime timeDeparture, String durationFlight,
-                  LocalDateTime timeArrival, String daysForDeparture) {
+    public Flight(
+            TypeFlight typeFlight, String nameAirline,
+            String numberFlight, String placeForArrival,
+            LocalDateTime timeDeparture, String durationFlight,
+            LocalDateTime timeArrival, String daysForDeparture) {
         this.typeFlight = typeFlight;
         this.nameAirline = nameAirline;
         this.numberFlight = numberFlight;
@@ -61,7 +59,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
+        return "\"\uD83C\uDF89\"Flight{" +
                 "typeFlight=" + typeFlight +
                 ", nameAirline='" + nameAirline + '\'' +
                 ", numberFlight='" + numberFlight + '\'' +
@@ -70,14 +68,16 @@ public class Flight {
                 ", durationFlight='" + durationFlight + '\'' +
                 ", timeArrival=" + timeArrival +
                 ", daysForDeparture='" + daysForDeparture + '\'' +
-                '}';
+                "}\"\uD83C\uDF89\"\n";
     }
 
+    @Override
+    public int compareTo(Flight o) {
+        return this.getTimeArrival().compareTo(o.getTimeArrival());
+    }
 
-
-    public enum TypeFlight{
+    public enum TypeFlight {
         DEPARTURE,
         ARRIVAL
     }
-
 }
