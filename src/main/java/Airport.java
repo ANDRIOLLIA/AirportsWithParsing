@@ -11,7 +11,8 @@ import java.util.*;
 public class Airport {
     private final String urlMainPageAviaSales = "https://www.aviasales.ru";
     private Map<String, String> mapAllAirports;
-    private final String pathToFilesHtml = "src/main/resources/data/";
+    private final String pathToFilesHtml = "src/main/resources/data/templates/";
+    public final String pathToFilesTxt = "src/main/resources/data/get_info_from_airports/";
 
     public Airport() {
         mapAllAirports = new TreeMap<>();
@@ -83,10 +84,13 @@ public class Airport {
     }
 
     //TODO Вывод всех аэропортов в удобочитаемом формате
-    public void printMapAllAirports() {
+    public List<String> getListAllAirports() {
+        List<String> listAllAirports = new ArrayList<>();
         for (Map.Entry<String, String> entryAirport : mapAllAirports.entrySet()) {
-            System.out.println("\uD83C\uDF89" + entryAirport.getKey() + "\n" + entryAirport.getValue() + "\uD83C\uDF89");
+
+            listAllAirports.add("\uD83C\uDF89" + entryAirport.getKey() + "\n" + entryAirport.getValue() + "\uD83C\uDF89");
         }
+        return listAllAirports;
     }
 
     /*

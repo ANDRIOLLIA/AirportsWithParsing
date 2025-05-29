@@ -13,7 +13,7 @@ public class Main {
         Airport airport = new Airport();
 
         //TODO Вывод всех аэропортов в удобочитаемом формате
-        airport.printMapAllAirports();
+        airport.getListAllAirports();
 
         /*
         TODO
